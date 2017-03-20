@@ -41,7 +41,7 @@ test-deps: deps
 
 # XXX requires TEST_WD_URL
 test-main:
-TEST_MAX_CONCUR=1 WEBUA_DEBUG=2 $(PROVE) t/*.t
+	TEST_MAX_CONCUR=1 WEBUA_DEBUG=2 $(PROVE) t/*.t
 
 #  perl local/bin/pmbp.pl --add-git-submodule-recursively "t_deps/modules https://github.com/manakai/perl-web-driver-client.git"
 # で使えるように。
