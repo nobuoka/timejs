@@ -1,0 +1,26 @@
+machine:
+  services:
+    - docker
+dependencies:
+  cache_directories:
+    - "local/perlbrew/perls"
+  override:
+    - docker info
+    - docker pull quay.io/wakaba/firefoxdriver:stable :
+        background: true
+        timeout: 600
+
+    - make deps:
+        timeout: 600
+
+test:
+  override:
+    - docker run --name firefoxdriver -v $(pwd):/contents -d --net=host -t quay.io/wakaba/firefoxdriver:stable /fx:
+        parallel: true
+    - TEST_WD_URL=http://localhost:9516 make test :
+        timeout: 600
+        parallel: true
+    - docker logs firefoxdriver:
+        parallel: true
+    - docker kill firefoxdriver:
+        parallel: true

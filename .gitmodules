@@ -1,0 +1,33 @@
+[submodule "modules/web-driver-client"]
+	path = modules/web-driver-client
+	url = https://github.com/manakai/perl-web-driver-client.git
+[submodule "modules/web-resource"]
+	path = modules/web-resource
+	url = https://github.com/manakai/perl-web-resource
+[submodule "modules/promise"]
+	path = modules/promise
+	url = git://github.com/wakaba/perl-promise
+[submodule "modules/web-url"]
+	path = modules/web-url
+	url = git://github.com/manakai/perl-web-url
+[submodule "modules/web-encodings"]
+	path = modules/web-encodings
+	url = https://github.com/manakai/perl-web-encodings
+[submodule "modules/web-encodings.2"]
+	path = modules/web-encodings.2
+	url = git://github.com/manakai/perl-web-encodings
+[submodule "modules/web-datetime"]
+	path = modules/web-datetime
+	url = git://github.com/manakai/perl-web-datetime
+[submodule "modules/web-url.2"]
+	path = modules/web-url.2
+	url = https://github.com/manakai/perl-web-url
+[submodule "modules/promise.2"]
+	path = modules/promise.2
+	url = https://github.com/wakaba/perl-promise
+[submodule "modules/json-ps"]
+	path = modules/json-ps
+	url = https://github.com/wakaba/perl-json-ps
+[submodule "modules/web-datetime.2"]
+	path = modules/web-datetime.2
+	url = https://github.com/manakai/perl-web-datetime
