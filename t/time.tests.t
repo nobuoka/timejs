@@ -12,7 +12,7 @@ my $c;
 my $wd = Web::Driver::Client::Connection->new_from_url ($WD_URL);
 $wd->new_session (desired => {})->then (sub {
   my $session = $_[0];
-  return $session->go (Web::URL->parse_string (q<file:///contents/test/time.tests.html>))->then (sub {
+  return $session->go (Web::URL->parse_string (q<file:///contents/t/time.tests.html>))->then (sub {
     return $session->execute (q{
       var elems = document.querySelectorAll("#qunit-tests > li");
       return '1..' + elems.length + "\n" + Array.prototype.map.call(elems, function (e, i) {
