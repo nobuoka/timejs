@@ -15,14 +15,12 @@ my $root_path = path (__FILE__)->parent->parent;
 #   * `navigator.language` depends on `intl.accept_languages` of prefs.
 
 my $LANG_TO_PREF_MAP = {
-  'en' => {
-    query_string => '?locale=en-US',
+  'en-US' => {
     wd_desired_capabilities => {
       'moz:firefoxOptions' => { 'prefs' => { 'intl.accept_languages' => 'en-US, en' } },
     },
   },
-  'ja' => {
-    query_string => '?locale=ja-JP',
+  'ja-JP' => {
     wd_desired_capabilities => {
       'moz:firefoxOptions' => { 'prefs' => { 'intl.accept_languages' => 'ja-JP, en-US, en' } },
     },
@@ -31,11 +29,12 @@ my $LANG_TO_PREF_MAP = {
 
 sub run_tests {
   my $test_wd_url = $ENV{TEST_WD_URL} || die 'Environment variable `TEST_WD_URL` must be set`';
+  my $test_timezone = $ENV{TEST_TZ} || die 'Environment variable `TEST_TZ` must be set`';
   my $test_lang = $ENV{TEST_LANG} || die 'Environment variable `TEST_LANG` must be set`';
   my $test_results_path = defined $ENV{TEST_RESULTS_DIR} ? path ($ENV{TEST_RESULTS_DIR}) : $root_path->child ("local/test/results");
 
   my $test_pref = $LANG_TO_PREF_MAP->{$test_lang} || die "Unknown `TEST_LANG` value : $test_lang";
-  my $query_string = $test_pref->{query_string};
+  my $query_string = "?env=${test_timezone}:${test_lang}";
   my $wd_desired_capabilities = $test_pref->{wd_desired_capabilities};
 
   $test_results_path->mkpath;
